@@ -35,7 +35,7 @@ class Sankey(Chart):
         label_opts: types.Label = opts.LabelOpts(),
         linestyle_opt: types.LineStyle = opts.LineStyleOpts(),
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         if layout_iterations < 32:
             layout_iterations = 32

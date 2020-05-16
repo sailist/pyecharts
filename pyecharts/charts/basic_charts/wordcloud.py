@@ -34,7 +34,7 @@ class WordCloud(Chart):
     def __init__(self, init_opts: types.Init = opts.InitOpts()):
         super().__init__(init_opts=init_opts)
         self.js_dependencies.add("echarts-wordcloud")
-        self._mask_image_suffix: types.Sequence = ["jpg", "jpeg", "png", "ico"]
+        self._mask_image_suffix = ["jpg", "jpeg", "png", "ico"]
 
     def _create_mask_image_variable(self, data: str) -> JsCode:
         image_str = self._encode_image_to_base64(image_or_path=data)
@@ -42,12 +42,12 @@ class WordCloud(Chart):
             raise WordCloudMaskImageException(data=data)
         current_chart_id = self.chart_id
         self.add_js_funcs(
-            f"""
+            """
         var maskImage_{current_chart_id} = new Image();
         maskImage_{current_chart_id}.src = '{image_str}';
-        """
+        """.format(current_chart_id=current_chart_id,image_str=image_str,)
         )
-        return JsCode(f"maskImage_{current_chart_id}")
+        return JsCode("maskImage_{current_chart_id}".format(current_chart_id=current_chart_id))
 
     def _encode_image_to_base64(self, image_or_path: str) -> types.Optional[str]:
         try:
@@ -59,7 +59,10 @@ class WordCloud(Chart):
                 if ext in self._mask_image_suffix:
                     with open(Path(image_or_path), "rb") as f:
                         data = base64.b64encode(f.read()).decode()
-                        image_str = f"data:image/{ext};base64,{data}"
+                        image_str = "data:image/{ext};base64,{data}".format(
+                            ext=ext,
+                            data=data
+                        )
                     return image_str
         except OSError:
             return image_or_path
@@ -85,7 +88,7 @@ class WordCloud(Chart):
         itemstyle_opts: types.ItemStyle = None,
         textstyle_opts: types.TextStyle = None,
         emphasis_shadow_blur: types.Optional[types.Numeric] = None,
-        emphasis_shadow_color: types.Optional[str] = None,
+        emphasis_shadow_color: types.Optional[str] = None
     ):
         data = []
         for n, v in data_pair:

@@ -11,12 +11,12 @@ from ..mixins import CompositeMixin
 
 class Tab(CompositeMixin):
     def __init__(self, page_title: str = CurrentConfig.PAGE_TITLE, js_host: str = ""):
-        self.js_host: str = js_host or CurrentConfig.ONLINE_HOST
-        self.page_title: str = page_title
-        self.download_button: bool = False
-        self.js_functions: utils.OrderedSet = utils.OrderedSet()
-        self.js_dependencies: utils.OrderedSet = utils.OrderedSet()
-        self._charts: list = []
+        self.js_host = js_host or CurrentConfig.ONLINE_HOST
+        self.page_title = page_title
+        self.download_button = False
+        self.js_functions = utils.OrderedSet()
+        self.js_dependencies = utils.OrderedSet()
+        self._charts = []
 
     def add(self, chart, tab_name):
         chart.tab_name = tab_name
@@ -38,7 +38,7 @@ class Tab(CompositeMixin):
         path: str = "render.html",
         template_name: str = "simple_tab.html",
         env: types.Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         self._prepare_render()
         return engine.render(self, path, template_name, env, **kwargs)
@@ -47,7 +47,7 @@ class Tab(CompositeMixin):
         self,
         template_name: str = "simple_tab.html",
         env: types.Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         self._prepare_render()
         return engine.render_embed(self, template_name, env, **kwargs)

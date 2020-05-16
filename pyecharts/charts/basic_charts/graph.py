@@ -35,7 +35,7 @@ class Graph(Chart):
         label_opts: types.Label = opts.LabelOpts(),
         linestyle_opts: types.LineStyle = opts.LineStyleOpts(),
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         _nodes = []
         for n in nodes:

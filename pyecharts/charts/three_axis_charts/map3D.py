@@ -50,7 +50,7 @@ class Map3D(Chart3D):
         is_silent: bool = False,
         is_animation: bool = True,
         animation_duration_update: types.Numeric = 100,
-        animation_easing_update: types.Numeric = "cubicOut",
+        animation_easing_update: types.Numeric = "cubicOut"
     ):
         if type_ != ChartType.LINES3D:
             data = [{"name": n, "value": v} for n, v in data_pair]
@@ -199,7 +199,7 @@ class Map3D(Chart3D):
         pos_right: types.Union[types.Numeric, str] = "auto",
         pos_bottom: types.Union[types.Numeric, str] = "auto",
         pos_width: types.Union[types.Numeric, str] = "auto",
-        pos_height: types.Union[types.Numeric, str] = "auto",
+        pos_height: types.Union[types.Numeric, str] = "auto"
     ):
         self.js_dependencies.add(maptype)
         self.options.update(

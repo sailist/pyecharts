@@ -27,7 +27,7 @@ class AnimationOpts(BasicOpts):
         animation_easing_update: Union[Numeric] = "cubicOut",
         animation_delay_update: Union[Numeric, JSFunc] = 0,
     ):
-        self.opts: dict = {
+        self.opts = {
             "animation": animation,
             "animationThreshold": animation_threshold,
             "animationDuration": animation_duration,
@@ -52,7 +52,7 @@ class InitOpts(BasicOpts):
         js_host: str = "",
         animation_opts: Union[AnimationOpts, dict] = AnimationOpts(),
     ):
-        self.opts: dict = {
+        self.opts = {
             "width": width,
             "height": height,
             "chart_id": chart_id,
@@ -78,7 +78,7 @@ class ToolBoxFeatureSaveAsImageOpts(BasicOpts):
         icon: Optional[JSFunc] = None,
         pixel_ratio: Numeric = 1,
     ):
-        self.opts: dict = {
+        self.opts = {
             "type": type_,
             "name": name,
             "backgroundColor": background_color,
@@ -95,7 +95,7 @@ class ToolBoxFeatureRestoreOpts(BasicOpts):
     def __init__(
         self, is_show: bool = True, title: str = "还原", icon: Optional[JSFunc] = None
     ):
-        self.opts: dict = {"show": is_show, "title": title, "icon": icon}
+        self.opts = {"show": is_show, "title": title, "icon": icon}
 
 
 class ToolBoxFeatureDataViewOpts(BasicOpts):
@@ -118,7 +118,7 @@ class ToolBoxFeatureDataViewOpts(BasicOpts):
         if lang is None:
             lang = ["数据视图", "关闭", "刷新"]
 
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "title": title,
             "icon": icon,
@@ -146,7 +146,7 @@ class ToolBoxFeatureDataZoomOpts(BasicOpts):
         xaxis_index: Union[Numeric, Sequence, bool] = None,
         yaxis_index: Union[Numeric, Sequence, bool] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "title": {"zoom": zoom_title, "back": back_title},
             "icon": {"zoom": zoom_icon, "back": back_icon},
@@ -172,7 +172,7 @@ class ToolBoxFeatureMagicTypeOpts(BasicOpts):
         if type_ is None:
             type_ = ["line", "bar", "stack", "tiled"]
 
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "type": type_,
             "title": {
@@ -207,7 +207,7 @@ class ToolBoxFeatureBrushOpts(BasicOpts):
         keep_title: str = "保持选择",
         clear_title: str = "清除选择",
     ):
-        self.opts: dict = {
+        self.opts = {
             "type": type_,
             "icon": {
                 "rect": rect_icon,
@@ -246,7 +246,7 @@ class ToolBoxFeatureOpts(BasicOpts):
         ] = ToolBoxFeatureMagicTypeOpts(),
         brush: Union[ToolBoxFeatureBrushOpts, dict] = ToolBoxFeatureBrushOpts(),
     ):
-        self.opts: dict = {
+        self.opts = {
             "saveAsImage": save_as_image,
             "restore": restore,
             "dataView": data_view,
@@ -269,7 +269,7 @@ class ToolboxOpts(BasicOpts):
         pos_bottom: Optional[str] = None,
         feature: Union[ToolBoxFeatureOpts, dict] = ToolBoxFeatureOpts(),
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "orient": orient,
             "itemSize": item_size,
@@ -310,7 +310,7 @@ class BrushOpts(BasicOpts):
                 "borderColor": "rgba(120,140,180,0.8)",
             }
 
-        self.opts: dict = {
+        self.opts = {
             "toolbox": tool_box,
             "brushLink": brush_link,
             "seriesIndex": series_index,
@@ -346,7 +346,7 @@ class TitleOpts(BasicOpts):
         title_textstyle_opts: Union[TextStyleOpts, dict, None] = None,
         subtitle_textstyle_opts: Union[TextStyleOpts, dict, None] = None,
     ):
-        self.opts: Sequence = [
+        self.opts = [
             {
                 "text": title,
                 "link": title_link,
@@ -385,7 +385,7 @@ class DataZoomOpts(BasicOpts):
         pos_top: Optional[str] = None,
         pos_bottom: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "type": type_,
             "realtime": is_realtime,
@@ -424,7 +424,7 @@ class LegendOpts(BasicOpts):
         textstyle_opts: Union[TextStyleOpts, dict, None] = None,
         legend_icon: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "type": type_,
             "selectedMode": selected_mode,
             "show": is_show,
@@ -475,7 +475,7 @@ class VisualMapOpts(BasicOpts):
         border_width: int = 0,
         textstyle_opts: Union[TextStyleOpts, dict, None] = None,
     ):
-        _inrange_op: dict = {}
+        _inrange_op = {}
         if type_ == "color":
             range_color = range_color or ["#50a3ba", "#eac763", "#d94e5d"]
             _inrange_op.update(color=range_color)
@@ -492,7 +492,7 @@ class VisualMapOpts(BasicOpts):
         elif item_width == 0 and item_height == 0:
             item_width, item_height = 20, 140
 
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "type": _visual_typ,
             "min": min_,
@@ -535,7 +535,7 @@ class TooltipOpts(BasicOpts):
         border_width: Numeric = 0,
         textstyle_opts: TextStyleOpts = TextStyleOpts(font_size=14),
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "trigger": trigger,
             "triggerOn": trigger_on,
@@ -557,7 +557,7 @@ class AxisLineOpts(BasicOpts):
         symbol: Optional[str] = None,
         linestyle_opts: Union[LineStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "onZero": is_on_zero,
             "onZeroAxisIndex": on_zero_axis_index,
@@ -575,7 +575,7 @@ class AxisTickOpts(BasicOpts):
         length: Optional[Numeric] = None,
         linestyle_opts: Union[LineStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "alignWithLabel": is_align_with_label,
             "inside": is_inside,
@@ -593,7 +593,7 @@ class AxisPointerOpts(BasicOpts):
         label: Union[LabelOpts, dict, None] = None,
         linestyle_opts: Union[LineStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "type": type_,
             "link": link,
@@ -631,7 +631,7 @@ class AxisOpts(BasicOpts):
         splitarea_opts: Union[SplitAreaOpts, dict, None] = None,
         splitline_opts: Union[SplitLineOpts, dict] = SplitLineOpts(),
     ):
-        self.opts: dict = {
+        self.opts = {
             "type": type_,
             "name": name,
             "show": is_show,
@@ -671,7 +671,7 @@ class GridOpts(BasicOpts):
         height: Union[Numeric, str, None] = None,
         is_contain_label: bool = False,
     ):
-        self.opts: dict = {
+        self.opts = {
             "left": pos_left,
             "top": pos_top,
             "right": pos_right,
@@ -692,7 +692,7 @@ class Grid3DOpts(BasicOpts):
         rotate_speed: Numeric = 10,
         rotate_sensitivity: Numeric = 1,
     ):
-        self.opts: dict = {
+        self.opts = {
             "boxWidth": width,
             "boxHeight": height,
             "boxDepth": depth,
@@ -718,7 +718,7 @@ class Axis3DOpts(BasicOpts):
         margin: Numeric = 8,
         textstyle_opts: Union[TextStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "data": data,
             "name": name,
             "nameGap": name_gap,
@@ -740,7 +740,7 @@ class ParallelOpts(BasicOpts):
         pos_top: str = "20%",
         layout: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "left": pos_left,
             "right": pos_right,
             "bottom": pos_bottom,
@@ -760,7 +760,7 @@ class ParallelAxisOpts(BasicOpts):
         max_: Union[str, Numeric, None] = None,
         is_scale: bool = False,
     ):
-        self.opts: dict = {
+        self.opts = {
             "dim": dim,
             "name": name,
             "data": data,
@@ -779,7 +779,7 @@ class RadarIndicatorItem(BasicOpts):
         max_: Optional[Numeric] = None,
         color: Optional[str] = None,
     ):
-        self.opts: dict = {"name": name, "max": max_, "min": min_, "color": color}
+        self.opts = {"name": name, "max": max_, "min": min_, "color": color}
 
 
 class CalendarDayLabelOpts(BasicOpts):
@@ -798,7 +798,7 @@ class CalendarDayLabelOpts(BasicOpts):
         align: Optional[str] = None,
         vertical_align: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "firstDay": first_day,
             "margin": margin,
@@ -830,7 +830,7 @@ class CalendarMonthLabelOpts(BasicOpts):
         label_font_size: int = 12,
         vertical_align: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "align": align,
             "margin": margin,
@@ -861,7 +861,7 @@ class CalendarYearLabelOpts(BasicOpts):
         align: Optional[str] = None,
         vertical_align: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "margin": margin,
             "position": position,
@@ -894,7 +894,7 @@ class CalendarOpts(BasicOpts):
         monthlabel_opts: Union[CalendarMonthLabelOpts, dict, None] = None,
         yearlabel_opts: Union[CalendarYearLabelOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "left": pos_left,
             "top": pos_top,
             "right": pos_right,
@@ -927,7 +927,7 @@ class SingleAxisOpts(BasicOpts):
         orient: Optional[str] = None,
         type_: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "name": name,
             "max": max_,
             "min": min_,
@@ -948,7 +948,7 @@ class RadiusAxisItem(BasicOpts):
         value: Optional[str] = None,
         textstyle_opts: Union[TextStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {"value": value, "textStyle": textstyle_opts}
+        self.opts = {"value": value, "textStyle": textstyle_opts}
 
 
 class AngleAxisItem(RadiusAxisItem):
@@ -987,7 +987,7 @@ class RadiusAxisOpts(BasicOpts):
                     d = d.opts
                 _data.append(d)
 
-        self.opts: dict = {
+        self.opts = {
             "polarIndex": polar_index,
             "type": type_,
             "data": data,
@@ -1034,7 +1034,7 @@ class AngleAxisOpts(BasicOpts):
                     d = d.opts
                 _data.append(d)
 
-        self.opts: dict = {
+        self.opts = {
             "polarIndex": polar_index,
             "startAngle": start_angle,
             "data": data,
@@ -1061,4 +1061,4 @@ class PolarOpts(BasicOpts):
         radius: Optional[Union[Sequence, str]] = None,
         tooltip_opts: TooltipOpts = None,
     ):
-        self.opts: dict = {"center": center, "radius": radius, "tooltip": tooltip_opts}
+        self.opts = {"center": center, "radius": radius, "tooltip": tooltip_opts}

@@ -43,7 +43,7 @@ class Parallel(Chart):
         is_selected: bool = True,
         linestyle_opts: types.LineStyle = opts.LineStyleOpts(),
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         self._append_legend(series_name, is_selected)
         self.options.get("series").append(

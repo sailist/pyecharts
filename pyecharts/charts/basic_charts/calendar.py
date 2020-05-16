@@ -25,7 +25,7 @@ class Calendar(Chart):
         label_opts: types.Label = opts.LabelOpts(),
         calendar_opts: types.Calendar = None,
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         if calendar_opts:
             self.options.update(calendar=calendar_opts)

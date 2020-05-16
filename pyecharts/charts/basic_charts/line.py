@@ -37,7 +37,7 @@ class Line(RectChart):
         itemstyle_opts: types.ItemStyle = None,
         label_opts: types.Label = opts.LabelOpts(),
         linestyle_opts: types.LineStyle = opts.LineStyleOpts(),
-        areastyle_opts: types.AreaStyle = opts.AreaStyleOpts(),
+        areastyle_opts: types.AreaStyle = opts.AreaStyleOpts()
     ):
         self._append_color(color)
         self._append_legend(series_name, is_selected)

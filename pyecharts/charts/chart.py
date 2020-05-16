@@ -24,7 +24,7 @@ class Chart(Base):
             legend=[{"data": [], "selected": dict()}],
             tooltip=opts.TooltipOpts().opts,
         )
-        self._chart_type: Optional[str] = None
+        self._chart_type = None
 
     def set_colors(self, colors: Sequence[str]):
         self.options.update(color=colors)
@@ -43,7 +43,7 @@ class Chart(Base):
         effect_opts: types.Effect = opts.EffectOpts(),
         tooltip_opts: types.Tooltip = None,
         itemstyle_opts: types.ItemStyle = None,
-        **kwargs,
+        **kwargs
     ):
         for s in self.options.get("series"):
             if label_opts:
@@ -208,7 +208,7 @@ class Chart3D(Chart):
         super().__init__(init_opts)
         self.js_dependencies.add("echarts-gl")
         self.options.update(visualMap=opts.VisualMapOpts().opts)
-        self._3d_chart_type: Optional[str] = None  # 3d chart type,don't use it directly
+        self._3d_chart_type = None  # 3d chart type,don't use it directly
 
 
 class ThreeAxisChart(Chart3D):

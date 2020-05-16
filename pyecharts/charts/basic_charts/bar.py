@@ -29,7 +29,7 @@ class Bar(RectChart):
         markline_opts: types.MarkLine = None,
         tooltip_opts: types.Tooltip = None,
         itemstyle_opts: types.ItemStyle = None,
-        encode: types.Union[types.JSFunc, dict, None] = None,
+        encode: types.Union[types.JSFunc, dict, None] = None
     ):
         self._append_color(color)
         self._append_legend(series_name, is_selected)

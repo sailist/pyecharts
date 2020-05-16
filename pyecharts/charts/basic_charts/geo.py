@@ -14,7 +14,7 @@ class GeoChartBase(Chart):
         self.set_global_opts()
         self._coordinates = COORDINATES
         self._zlevel = 1
-        self._coordinate_system: types.Optional[str] = None
+        self._coordinate_system = None
         self._chart_type = ChartType.GEO
 
     def add_coordinate(
@@ -57,8 +57,7 @@ class GeoChartBase(Chart):
         tooltip_opts: types.Tooltip = None,
         itemstyle_opts: types.ItemStyle = None,
         render_item: types.JsCode = None,
-        encode: types.Union[types.JsCode, dict] = None,
-    ):
+        encode: types.Union[types.JsCode, dict] = None):
         self._zlevel += 1
         data = self._feed_data(data_pair, type_)
 
@@ -161,7 +160,7 @@ class Geo(GeoChartBase):
         is_ignore_nonexistent_coord: bool = False,
     ):
         super().__init__(init_opts=init_opts)
-        self._coordinate_system: types.Optional[str] = "geo"
+        self._coordinate_system = "geo"
         self._is_ignore_nonexistent_coord = is_ignore_nonexistent_coord
 
     def _feed_data(self, data_pair: types.Sequence, type_: str) -> types.Sequence:

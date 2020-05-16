@@ -15,9 +15,9 @@ class Grid(Base):
 
     def __init__(self, init_opts: types.Init = opts.InitOpts()):
         super().__init__(init_opts=init_opts)
-        self.options: types.Optional[dict] = None
-        self._axis_index: int = 0
-        self._grow_grid_index: int = 0
+        self.options = None
+        self._axis_index = 0
+        self._grow_grid_index = 0
 
     def add(
         self,
@@ -25,7 +25,7 @@ class Grid(Base):
         grid_opts: types.Union[opts.GridOpts, dict],
         *,
         grid_index: int = 0,
-        is_control_axis_index: bool = False,
+        is_control_axis_index: bool = False
     ):
         if self.options is None:
             self.options = copy.deepcopy(chart.options)

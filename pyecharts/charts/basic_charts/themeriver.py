@@ -22,7 +22,7 @@ class ThemeRiver(Chart):
         label_opts: types.Label = opts.LabelOpts(),
         singleaxis_opts: types.SingleAxis = opts.SingleAxisOpts(),
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         for n in series_name:
             self._append_legend(n, is_selected)

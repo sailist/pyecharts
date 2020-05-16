@@ -24,7 +24,7 @@ def make_snapshot(
     delay: float = 2,
     pixel_ratio: int = 2,
     is_remove_html: bool = False,
-    **kwargs,
+    **kwargs
 ):
     logger.info("Generating file ...")
     file_type = output_name.split(".")[-1]

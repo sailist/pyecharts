@@ -26,7 +26,7 @@ class Liquid(Chart):
         is_outline_show: bool = True,
         center: types.Sequence = None,
         tooltip_opts: types.Tooltip = None,
-        label_opts: types.Label = opts.LabelOpts(font_size=50, position="inside"),
+        label_opts: types.Label = opts.LabelOpts(font_size=50, position="inside")
     ):
         _animation_dur, _animation_dur_update = 2000, 1000
         if not is_animation:

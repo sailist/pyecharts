@@ -42,7 +42,7 @@ class TreeMap(Chart):
         upper_label_opts: types.Label = opts.LabelOpts(position="inside"),
         tooltip_opts: types.Tooltip = None,
         itemstyle_opts: types.ItemStyle = None,
-        breadcrumb_opts: types.TreeMapBreadcrumb = None,
+        breadcrumb_opts: types.TreeMapBreadcrumb = None
     ):
         self._append_legend(series_name, is_selected)
         self.options.get("series").append(

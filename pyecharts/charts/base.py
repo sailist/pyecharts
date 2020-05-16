@@ -32,13 +32,13 @@ class Base(ChartMixin):
         self.theme = _opts.get("theme", ThemeType.WHITE)
         self.chart_id = _opts.get("chart_id") or uuid.uuid4().hex
 
-        self.options: dict = {}
-        self.js_host: str = _opts.get("js_host") or CurrentConfig.ONLINE_HOST
-        self.js_functions: utils.OrderedSet = utils.OrderedSet()
-        self.js_dependencies: utils.OrderedSet = utils.OrderedSet("echarts")
+        self.options = {}
+        self.js_host = _opts.get("js_host") or CurrentConfig.ONLINE_HOST
+        self.js_functions = utils.OrderedSet()
+        self.js_dependencies = utils.OrderedSet("echarts")
         self.options.update(backgroundColor=_opts.get("bg_color"))
         self.options.update(_opts.get("animationOpts", AnimationOpts()).opts)
-        self._is_geo_chart: bool = False
+        self._is_geo_chart = False
 
     def get_options(self) -> dict:
         return utils.remove_key_with_none_value(self.options)
@@ -58,7 +58,7 @@ class Base(ChartMixin):
         path: str = "render.html",
         template_name: str = "simple_chart.html",
         env: Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         self._prepare_render()
         return engine.render(self, path, template_name, env, **kwargs)
@@ -67,7 +67,7 @@ class Base(ChartMixin):
         self,
         template_name: str = "simple_chart.html",
         env: Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         self._prepare_render()
         return engine.render_embed(self, template_name, env, **kwargs)

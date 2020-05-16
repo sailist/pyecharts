@@ -27,7 +27,7 @@ class ItemStyleOpts(BasicOpts):
         opacity: Optional[Numeric] = None,
         area_color: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "color": color,
             "color0": color0,
             "borderColor": border_color,
@@ -60,7 +60,7 @@ class TextStyleOpts(BasicOpts):
         height: Optional[str] = None,
         rich: Optional[dict] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "color": color,
             "fontStyle": font_style,
             "fontWeight": font_weight,
@@ -104,7 +104,7 @@ class LabelOpts(BasicOpts):
         border_radius: Optional[Numeric] = None,
         rich: Optional[dict] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "position": position,
             "color": color,
@@ -136,7 +136,7 @@ class LineStyleOpts(BasicOpts):
         type_: str = "solid",
         color: Union[str, Sequence, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "width": width,
             "opacity": opacity,
@@ -150,7 +150,7 @@ class SplitLineOpts(BasicOpts):
     def __init__(
         self, is_show: bool = False, linestyle_opts: LineStyleOpts = LineStyleOpts()
     ):
-        self.opts: dict = {"show": is_show, "lineStyle": linestyle_opts}
+        self.opts = {"show": is_show, "lineStyle": linestyle_opts}
 
 
 class MarkPointItem(BasicOpts):
@@ -168,7 +168,7 @@ class MarkPointItem(BasicOpts):
         symbol_size: Union[Numeric, Sequence, None] = None,
         itemstyle_opts: Union[ItemStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "name": name,
             "type": type_,
             "valueIndex": value_index,
@@ -191,7 +191,7 @@ class MarkPointOpts(BasicOpts):
         symbol_size: Union[None, Numeric] = None,
         label_opts: LabelOpts = LabelOpts(position="inside", color="#fff"),
     ):
-        self.opts: dict = {
+        self.opts = {
             "symbol": symbol,
             "symbolSize": symbol_size,
             "label": label_opts,
@@ -212,7 +212,7 @@ class MarkLineItem(BasicOpts):
         symbol: Optional[str] = None,
         symbol_size: Optional[Numeric] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "name": name,
             "type": type_,
             "valueIndex": value_index,
@@ -236,7 +236,7 @@ class MarkLineOpts(BasicOpts):
         label_opts: LabelOpts = LabelOpts(),
         linestyle_opts: Union[LineStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "silent": is_silent,
             "symbol": symbol,
             "symbolSize": symbol_size,
@@ -259,7 +259,7 @@ class MarkAreaItem(BasicOpts):
         label_opts: Union[LabelOpts, dict, None] = None,
         itemstyle_opts: Union[ItemStyleOpts, dict, None] = None,
     ):
-        self.opts: Sequence = [
+        self.opts = [
             {
                 "name": name,
                 "type": type_[0],
@@ -287,7 +287,7 @@ class MarkAreaOpts(BasicOpts):
         label_opts: LabelOpts = LabelOpts(),
         data: Sequence[Union[MarkAreaItem, dict]] = None,
     ):
-        self.opts: dict = {"silent": is_silent, "label": label_opts, "data": data}
+        self.opts = {"silent": is_silent, "label": label_opts, "data": data}
 
 
 class EffectOpts(BasicOpts):
@@ -302,7 +302,7 @@ class EffectOpts(BasicOpts):
         symbol_size: Optional[Numeric] = None,
         trail_length: Optional[Numeric] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "brushType": brush_type,
             "scale": scale,
@@ -325,7 +325,7 @@ class Lines3DEffectOpts(BasicOpts):
         trail_color: Optional[str] = None,
         trail_opacity: Optional[Numeric] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "period": period,
             "constantSpeed": constant_speed,
@@ -338,12 +338,12 @@ class Lines3DEffectOpts(BasicOpts):
 
 class AreaStyleOpts(BasicOpts):
     def __init__(self, opacity: Optional[Numeric] = 0, color: Optional[str] = None):
-        self.opts: dict = {"opacity": opacity, "color": color}
+        self.opts = {"opacity": opacity, "color": color}
 
 
 class SplitAreaOpts(BasicOpts):
     def __init__(self, is_show=True, areastyle_opts: AreaStyleOpts = AreaStyleOpts()):
-        self.opts: dict = {"show": is_show, "areaStyle": areastyle_opts}
+        self.opts = {"show": is_show, "areaStyle": areastyle_opts}
 
 
 class TreeMapBreadcrumbOpts(BasicOpts):
@@ -358,7 +358,7 @@ class TreeMapBreadcrumbOpts(BasicOpts):
         empty_item_width: Numeric = 25,
         item_opts: ItemStyleOpts = ItemStyleOpts(),
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "left": pos_left,
             "right": pos_right,

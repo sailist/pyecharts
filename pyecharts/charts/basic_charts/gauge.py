@@ -27,7 +27,7 @@ class Gauge(Chart):
         detail_label_opts: types.Label = opts.LabelOpts(formatter="{value}%"),
         tooltip_opts: types.Tooltip = None,
         axisline_opts: types.AxisLine = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
 
         self._append_legend(series_name, is_selected)

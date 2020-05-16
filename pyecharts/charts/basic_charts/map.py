@@ -28,7 +28,7 @@ class MapMixin:
         tooltip_opts: types.Tooltip = None,
         itemstyle_opts: types.ItemStyle = None,
         emphasis_label_opts: types.Label = None,
-        emphasis_itemstyle_opts: types.ItemStyle = None,
+        emphasis_itemstyle_opts: types.ItemStyle = None
     ):
         self.js_dependencies.add(maptype)
         data = [{"name": n, "value": v} for n, v in data_pair]

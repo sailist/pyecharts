@@ -26,7 +26,7 @@ class Pie(Chart):
         label_opts: types.Label = opts.LabelOpts(),
         tooltip_opts: types.Tooltip = None,
         itemstyle_opts: types.ItemStyle = None,
-        encode: types.Union[types.JSFunc, dict, None] = None,
+        encode: types.Union[types.JSFunc, dict, None] = None
     ):
         if self.options.get("dataset") is not None:
             data = None

@@ -27,7 +27,9 @@ def test_bmap(fake_writer):
     )
     bmap.render()
     content = fake_writer.call_args[0][1]
-    assert_in(f'src="{BAIDU_MAP_API_PREFIX}&ak={FAKE_API_KEY}"', content)
+    assert_in('src="{BAIDU_MAP_API_PREFIX}&ak={FAKE_API_KEY}"'.format(
+        BAIDU_MAP_API_PREFIX=BAIDU_MAP_API_PREFIX,
+        FAKE_API_KEY=FAKE_API_KEY), content)
     assert_in('"coordinateSystem": "bmap"', content, "non bmap found")
 
 

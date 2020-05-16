@@ -52,7 +52,7 @@ class Tree(Chart):
         label_opts: types.Label = opts.LabelOpts(),
         leaves_label_opts: types.Label = opts.LabelOpts(),
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         _data = self._set_collapse_interval(data, collapse_interval)
         self.options.get("series").append(

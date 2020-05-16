@@ -91,12 +91,12 @@ class FuzzyDict(dict):
 
 __HERE = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(__HERE, "map_filename.json"), "r", encoding="utf8") as f:
-    FILENAMES: FuzzyDict = FuzzyDict()
+    FILENAMES = FuzzyDict()
     for k, v in json.load(f).items():
         FILENAMES[k] = v
 
 with open(os.path.join(__HERE, "city_coordinates.json"), "r", encoding="utf8") as f:
-    COORDINATES: FuzzyDict = FuzzyDict()
+    COORDINATES = FuzzyDict()
     for k, v in json.load(f).items():
         COORDINATES[k] = v
 
@@ -125,9 +125,10 @@ def register_url(asset_url: str):
 
         js_folder_name = contents["JS_FOLDER"]
         if js_folder_name == "/":
-            js_file_prefix = f"{asset_url}/"
+            js_file_prefix = "{asset_url}/".format(asset_url=asset_url)
         else:
-            js_file_prefix = f"{asset_url}/{js_folder_name}/"
+            js_file_prefix = "{asset_url}/{js_folder_name}/".format(
+                asset_url=asset_url,js_folder_name=js_folder_name)
         EXTRA[js_file_prefix] = files
 
 

@@ -26,7 +26,7 @@ class EffectScatter(RectChart):
         label_opts: types.Label = opts.LabelOpts(),
         effect_opts: types.Effect = opts.EffectOpts(),
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         self._append_color(color)
         self._append_legend(series_name, is_selected)

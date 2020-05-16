@@ -12,7 +12,7 @@ class Timeline(Base):
         super().__init__(init_opts=init_opts)
         self.options = {"baseOption": {"series": [], "timeline": {}}, "options": []}
         self.add_schema()
-        self._time_points: types.Sequence = []
+        self._time_points = []
 
     def add_schema(
         self,

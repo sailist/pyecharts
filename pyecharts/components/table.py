@@ -15,12 +15,12 @@ class Table(ChartMixin):
     def __init__(self, page_title: str = CurrentConfig.PAGE_TITLE, js_host: str = ""):
         self.page_title = page_title
         self.js_host = js_host or CurrentConfig.ONLINE_HOST
-        self.js_dependencies: OrderedSet = OrderedSet()
-        self.js_functions: OrderedSet = OrderedSet()
-        self.title_opts: ComponentTitleOpts = ComponentTitleOpts()
-        self.html_content: str = ""
-        self._component_type: str = "table"
-        self.chart_id: str = uuid.uuid4().hex
+        self.js_dependencies = OrderedSet()
+        self.js_functions = OrderedSet()
+        self.title_opts = ComponentTitleOpts()
+        self.html_content = ""
+        self._component_type = "table"
+        self.chart_id = uuid.uuid4().hex
 
     def add(self, headers: Sequence, rows: Sequence, attributes: Optional[dict] = None):
         attributes = attributes or {"class": "fl-table"}
@@ -39,7 +39,7 @@ class Table(ChartMixin):
         path: str = "render.html",
         template_name: str = "components.html",
         env: Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         return engine.render(self, path, template_name, env, **kwargs)
 
@@ -47,7 +47,7 @@ class Table(ChartMixin):
         self,
         template_name: str = "components.html",
         env: Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         return engine.render_embed(self, template_name, env, **kwargs)
 

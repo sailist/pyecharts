@@ -24,8 +24,8 @@ class BMap(GeoChartBase):
         super().__init__(init_opts=init_opts)
         self.js_dependencies.add("bmap")
         self._is_geo_chart = True
-        self._coordinate_system: types.Optional[str] = "bmap"
-        self.bmap_js_functions: OrderedSet = OrderedSet()
+        self._coordinate_system = "bmap"
+        self.bmap_js_functions = OrderedSet()
         self._is_ignore_nonexistent_coord = is_ignore_nonexistent_coord
 
     def _feed_data(self, data_pair: types.Sequence, type_: str) -> types.Sequence:

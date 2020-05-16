@@ -26,7 +26,7 @@ class Funnel(Chart):
         gap: types.Numeric = 0,
         label_opts: types.Label = opts.LabelOpts(),
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         self._append_color(color)
         data = [{"name": n, "value": v} for n, v in data_pair]

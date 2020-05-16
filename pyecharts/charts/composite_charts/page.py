@@ -56,14 +56,14 @@ class Page(CompositeMixin):
         interval: int = 1,
         layout: types.Union[PageLayoutOpts, dict] = PageLayoutOpts(),
     ):
-        self.js_host: str = js_host or CurrentConfig.ONLINE_HOST
+        self.js_host = js_host or CurrentConfig.ONLINE_HOST
         self.page_title = page_title
         self.page_interval = interval
         self.layout = self._assembly_layout(layout)
-        self.js_functions: utils.OrderedSet = utils.OrderedSet()
+        self.js_functions = utils.OrderedSet()
         self.js_dependencies = utils.OrderedSet()
-        self.download_button: bool = False
-        self._charts: list = []
+        self.download_button = False
+        self._charts = []
 
     def add(self, *charts):
         for c in charts:
@@ -97,23 +97,23 @@ class Page(CompositeMixin):
                 charts_id.append("'{}'".format(c.chart_id))
                 self.add_js_funcs(
                     # make charts resizable and draggable
-                    f"$('#{c.chart_id}')"
+                    "$('#{c.chart_id}')"
                     ".resizable()"
                     ".draggable()"
                     ".css('border-style', 'dashed')"
                     ".css('border-width', '1px');"
                     # make charts Responsive
-                    f'$("#{c.chart_id}>div:nth-child(1)")'
+                    '$("#{c.chart_id}>div:nth-child(1)")'
                     '.width("100%")'
-                    '.height("100%");'
+                    '.height("100%");'.format(c=c)
                 )
 
                 if not hasattr(c, "_component_type"):
                     self.add_js_funcs(
                         # call resize function
                         "new ResizeSensor("
-                        f"jQuery('#{c.chart_id}'), "
-                        f"function() {{ chart_{c.chart_id}.resize()}});"
+                        "jQuery('#{c.chart_id}'), "
+                        "function() {{ chart_{c.chart_id}.resize()}});".format(c=c)
                     )
             for lib in ("jquery", "jquery-ui", "resize-sensor"):
                 self.js_dependencies.add(lib)
@@ -129,7 +129,7 @@ class Page(CompositeMixin):
         path: str = "render.html",
         template_name: str = "simple_page.html",
         env: types.Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         self._prepare_render()
         return engine.render(self, path, template_name, env, **kwargs)
@@ -138,7 +138,7 @@ class Page(CompositeMixin):
         self,
         template_name: str = "simple_page.html",
         env: types.Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         self._prepare_render()
         return engine.render_embed(self, template_name, env, **kwargs)
@@ -161,7 +161,7 @@ class Page(CompositeMixin):
         *,
         cfg_file: types.Optional[str] = None,
         cfg_dict: types.Optional[list] = None,
-        dest: str = "resize_render.html",
+        dest: str = "resize_render.html"
     ) -> str:
         with open(source, "r", encoding="utf8") as f:
             html = f.read()

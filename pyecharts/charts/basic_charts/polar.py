@@ -42,7 +42,7 @@ class Polar(Chart):
         areastyle_opts: types.AreaStyle = opts.AreaStyleOpts(),
         effect_opts: types.Effect = opts.EffectOpts(),
         tooltip_opts: types.Tooltip = None,
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         self._append_legend(series_name, is_selected)
         self.options.update(polar={})

@@ -29,7 +29,7 @@ class MapGlobe(Chart3D, MapMixin):
         path: str = "render.html",
         template_name: str = "simple_globe.html",
         env: types.Optional[Environment] = None,
-        **kwargs,
+        **kwargs
     ) -> str:
         return super().render(path=path, template_name=template_name, env=env, **kwargs)
 

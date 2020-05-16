@@ -27,7 +27,7 @@ class SunburstItem(BasicOpts):
         itemstyle_opts: Union[ItemStyleOpts, dict, None] = None,
         children: Optional[Sequence] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "value": value,
             "name": name,
             "link": link,
@@ -51,7 +51,7 @@ class GraphNode(BasicOpts):
         symbol_size: Union[Numeric, Sequence, None] = None,
         label_opts: Union[LabelOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "name": name,
             "x": x,
             "y": y,
@@ -75,7 +75,7 @@ class GraphLink(BasicOpts):
         linestyle_opts: Union[LineStyleOpts, dict, None] = None,
         label_opts: Union[LabelOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "source": source,
             "target": target,
             "value": value,
@@ -94,7 +94,7 @@ class GraphCategory(BasicOpts):
         symbol_size: Union[Numeric, Sequence, None] = None,
         label_opts: Union[LabelOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "name": name,
             "symbol": symbol,
             "symbolSize": symbol_size,
@@ -110,7 +110,7 @@ class TreeItem(BasicOpts):
         label_opts: Union[LabelOpts, dict, None] = None,
         children: Optional[Sequence] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "name": name,
             "value": value,
             "children": children,
@@ -138,7 +138,7 @@ class BMapNavigationControlOpts(BasicOpts):
             }
         )
 
-        self.opts: dict = {
+        self.opts = {
             "functions": [
                 "bmap.addControl(new BMap.NavigationControl({}));".format(
                     bmap_nav_config
@@ -163,7 +163,7 @@ class BMapOverviewMapControlOpts(BasicOpts):
             }
         )
 
-        self.opts: dict = {
+        self.opts = {
             "functions": [
                 "var overview = new BMap.OverviewMapControl({});".format(
                     bmap_overview_config
@@ -187,7 +187,7 @@ class BMapScaleControlOpts(BasicOpts):
             }
         )
 
-        self.opts: dict = {
+        self.opts = {
             "functions": [
                 "bmap.addControl(new BMap.ScaleControl({}));".format(bmap_scale_config)
             ]
@@ -202,7 +202,7 @@ class BMapTypeControlOpts(BasicOpts):
     ):
         bmap_type_config = json.dumps({"anchor": position, "type": type_})
 
-        self.opts: dict = {
+        self.opts = {
             "functions": [
                 "bmap.addControl(new BMap.MapTypeControl({}));".format(bmap_type_config)
             ]
@@ -226,7 +226,7 @@ class BMapCopyrightTypeOpts(BasicOpts):
 
         bmap_copyright_content_config = json.dumps({"id": 1, "content": copyright_})
 
-        self.opts: dict = {
+        self.opts = {
             "functions": [
                 "var copyright = new BMap.CopyrightControl({});".format(
                     bmap_copyright_config
@@ -255,7 +255,7 @@ class BMapGeoLocationControlOpts(BasicOpts):
             }
         )
 
-        self.opts: dict = {
+        self.opts = {
             "functions": [
                 "bmap.addControl(new BMap.GeolocationControl({}))".format(
                     bmap_geo_location_config
@@ -273,7 +273,7 @@ class BarItem(BasicOpts):
         itemstyle_opts: Union[ItemStyleOpts, dict, None] = None,
         tooltip_opts: Union[TooltipOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "name": name,
             "value": value,
             "label": label_opts,
@@ -292,8 +292,8 @@ class ComponentTitleOpts:
     ):
         self.title = title.replace("\n", "<br/>")
         self.subtitle = subtitle.replace("\n", "<br/>")
-        self.title_style: str = ""
-        self.subtitle_style: str = ""
+        self.title_style = ""
+        self.subtitle_style = ""
         title_style = title_style or {"style": "font-size: 18px; font-weight:bold;"}
         subtitle_style = subtitle_style or {"style": "font-size: 12px;"}
         self._convert_dict_to_string(title_style, subtitle_style)
@@ -313,7 +313,7 @@ class PageLayoutOpts(BasicOpts):
         display: Optional[str] = None,
         flex_wrap: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "justify-content": justify_content,
             "margin": margin,
             "display": display,
@@ -334,7 +334,7 @@ class GraphicShapeOpts(BaseGraphic):
         height: Numeric = 0,
         r: Union[Sequence, Numeric, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "x": pos_x,
             "y": pos_y,
             "width": width,
@@ -354,7 +354,7 @@ class GraphicBasicStyleOpts(BaseGraphic):
         shadow_offset_y: Optional[Numeric] = None,
         shadow_color: Optional[str] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "fill": fill,
             "stroke": stroke,
             "line_width": line_width,
@@ -376,7 +376,7 @@ class GraphicImageStyleOpts(BaseGraphic):
         opacity: Numeric = 1,
         graphic_basicstyle_opts: Union[GraphicBasicStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "image": image,
             "x": pos_x,
             "y": pos_y,
@@ -403,7 +403,7 @@ class GraphicTextStyleOpts(BaseGraphic):
         text_vertical_align: Optional[str] = None,
         graphic_basicstyle_opts: Union[GraphicBasicStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "text": text,
             "x": pos_x,
             "y": pos_y,
@@ -444,7 +444,7 @@ class GraphicItem(BaseGraphic):
         width: Numeric = 0,
         height: Numeric = 0,
     ):
-        self.opts: dict = {
+        self.opts = {
             "id": id_,
             "$action": action,
             "position": position,
@@ -476,7 +476,7 @@ class GraphicGroup(BaseGraphic):
         is_diff_children_by_name: bool = False,
         children: Optional[Sequence[BaseGraphic]] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "type": "group",
             "diffChildrenByName": is_diff_children_by_name,
             "children": children,
@@ -495,7 +495,7 @@ class GraphicImage(BaseGraphic):
         graphic_item: Union[GraphicItem, dict, None] = None,
         graphic_imagestyle_opts: Union[GraphicImageStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {"type": "image"}
+        self.opts = {"type": "image"}
 
         if graphic_item:
             if isinstance(graphic_item, GraphicItem):
@@ -516,7 +516,7 @@ class GraphicText(BaseGraphic):
         graphic_item: Union[GraphicItem, dict, None] = None,
         graphic_textstyle_opts: Union[GraphicTextStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {"type": "text"}
+        self.opts = {"type": "text"}
 
         if graphic_item:
             if isinstance(graphic_item, GraphicItem):
@@ -538,7 +538,7 @@ class GraphicRect(BaseGraphic):
         graphic_shape_opts: Union[GraphicShapeOpts, dict, None] = None,
         graphic_basicstyle_opts: Union[GraphicBasicStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {"type": "rect"}
+        self.opts = {"type": "rect"}
 
         if graphic_item:
             if isinstance(graphic_item, GraphicItem):
@@ -566,7 +566,7 @@ class SankeyLevelsOpts(BasicOpts):
         itemstyle_opts: Union[ItemStyleOpts, dict, None] = None,
         linestyle_opts: Union[LineStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "depth": depth,
             "itemStyle": itemstyle_opts,
             "lineStyle": linestyle_opts,
@@ -586,7 +586,7 @@ class TreeMapItemStyleOpts(BasicOpts):
         stroke_color: Optional[str] = None,
         stroke_width: Optional[Numeric] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "color": color,
             "colorAlpha": color_alpha,
             "colorSaturation": color_saturation,
@@ -609,7 +609,7 @@ class TreeMapLevelsOpts(BasicOpts):
         label_opts: Union[LabelOpts, dict, None] = None,
         upper_label_opts: Union[LabelOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "colorAlpha": color_alpha,
             "colorSaturation": color_saturation,
             "colorMappingBy": color_mapping_by,
@@ -627,7 +627,7 @@ class Map3DLabelOpts(BasicOpts):
         formatter: Optional[JSFunc] = None,
         text_style: Union[TextStyleOpts, dict, None] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "show": is_show,
             "distance": distance,
             "formatter": formatter,
@@ -647,7 +647,7 @@ class Map3DRealisticMaterialOpts(BasicOpts):
         metalness_adjust: Numeric = 0.5,
         normal_texture: Optional[JSFunc] = None,
     ):
-        self.opts: dict = {
+        self.opts = {
             "detailTexture": detail_texture,
             "textureTiling": texture_tiling,
             "textureOffset": texture_offset,
@@ -666,7 +666,7 @@ class Map3DLambertMaterialOpts(BasicOpts):
         texture_tiling: Numeric = 1,
         texture_offset: Numeric = 0,
     ):
-        self.opts: dict = {
+        self.opts = {
             "detailTexture": detail_texture,
             "textureTiling": texture_tiling,
             "textureOffset": texture_offset,
@@ -680,7 +680,7 @@ class Map3DColorMaterialOpts(BasicOpts):
         texture_tiling: Numeric = 1,
         texture_offset: Numeric = 0,
     ):
-        self.opts: dict = {
+        self.opts = {
             "detailTexture": detail_texture,
             "textureTiling": texture_tiling,
             "textureOffset": texture_offset,
@@ -702,7 +702,7 @@ class Map3DLightOpts(BasicOpts):
         ambient_cubemap_diffuse_intensity: Numeric = 0.5,
         ambient_cubemap_specular_intensity: Numeric = 0.5,
     ):
-        self.opts: dict = {
+        self.opts = {
             "main": {
                 "color": main_color,
                 "intensity": main_intensity,
@@ -743,7 +743,7 @@ class Map3DPostEffectOpts(BasicOpts):
         color_correction_saturation: Numeric = 1,
         is_fxaa_enable: bool = False,
     ):
-        self.opts: dict = {
+        self.opts = {
             "enable": is_enable,
             "bloom": {"enable": is_bloom_enable, "bloomIntensity": bloom_intensity},
             "depthOfField": {
@@ -802,7 +802,7 @@ class Map3DViewControlOpts(BasicOpts):
         animation_duration_update: Numeric = 1000,
         animation_easing_update: str = "cubicInOut",
     ):
-        self.opts: dict = {
+        self.opts = {
             "projection": projection,
             "autoRotate": auto_rotate,
             "autoRotateDirection": auto_rotate_direction,

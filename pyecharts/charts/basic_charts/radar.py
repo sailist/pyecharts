@@ -61,7 +61,7 @@ class Radar(Chart):
         label_opts: opts.LabelOpts = opts.LabelOpts(),
         linestyle_opts: opts.LineStyleOpts = opts.LineStyleOpts(),
         areastyle_opts: opts.AreaStyleOpts = opts.AreaStyleOpts(),
-        tooltip_opts: types.Tooltip = None,
+        tooltip_opts: types.Tooltip = None
     ):
         self._append_legend(series_name, is_selected)
         self.options.get("series").append(

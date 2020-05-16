@@ -26,7 +26,7 @@ class Sunburst(Chart):
         sort_: types.Optional[types.JSFunc] = "desc",
         levels: types.Optional[types.Sequence] = None,
         label_opts: types.Label = opts.LabelOpts(),
-        itemstyle_opts: types.ItemStyle = None,
+        itemstyle_opts: types.ItemStyle = None
     ):
         if not center:
             center = ["50%", "50%"]
