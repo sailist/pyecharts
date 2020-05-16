@@ -10,8 +10,8 @@ from setuptools import Command, find_packages, setup
 
 __title__ = "pyecharts35"
 __description__ = "Python options, make charting easier"
-__url__ = "https://github.com/pyecharts/pyecharts"
-__author_email__ = "chenjiandongx@qq.com"
+__url__ = "https://github.com/sailist/pyecharts"
+__author_email__ = "sailist@outlook.com"
 __license__ = "MIT"
 
 __requires__ = ["jinja2", "prettytable", "simplejson"]
@@ -25,12 +25,11 @@ __extra_requires__ = {
 __keywords__ = ["Echarts", "charts", "plotting-tool"]
 # Load the package's _version.py module as a dictionary.
 here = os.path.abspath(os.path.dirname(__file__))
-about = {}
-with open(os.path.join(here, __title__, "_version.py")) as f:
-    exec(f.read(), about)
+# with open(os.path.join(here, __title__, "_version.py")) as f:
+#     exec(f.read(), about)
 
 
-__version__ = about["__version__"]
+__version__ = "1.7.1"
 
 
 class UploadCommand(Command):
@@ -74,7 +73,7 @@ setup(
     version=__version__,
     description=__description__,
     url=__url__,
-    author=about["__author__"],
+    author='sailist',
     author_email=__author_email__,
     license=__license__,
     packages=find_packages(exclude=("test",)),
